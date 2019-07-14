@@ -12,9 +12,11 @@ Ex:  hello(null) => null
 
 */
 
-function hello() {
+function hello(name) {
   // WRITE YOUR CODE UNDER THIS LINE  
+  if (name === "" || name === null || name === undefined) { return null; }
 
+  return ("HELLO " + name + " !")
 }
 
 
@@ -32,9 +34,12 @@ Ex: calculateTax(100,0.15)
 => "You got 100 JD from sales, you should pay 15 JD for tax and you will have 85 JD as net sales."
 */
 
-function calculateTax() {
+function calculateTax(sales, tax) {
   // WRITE YOUR CODE UNDER THIS LINE 
+  var x = sales * tax;
+  var net = sales - x;
 
+  return ("You got " + sales + " JD from sales, you should pay " + x + " JD for tax and you will have " + net + " JD as net sales.")
 }
 
 
@@ -52,9 +57,24 @@ Ex: repeatChar("a",2); => "a, A"
 Ex: repeatChar("C",5); => "C, c, C, c, C"
 */
 
-function repeatChar() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function repeatChar(str, num) {
+  // WRITE YOUR CODE UNDER THIS LINE   
+  if (num % 2 !== 0)
+    var output = str.toUpperCase();
+  else
+    var output = str.toLowerCase();
+  num--;
 
+  while (num > 0) {
+    if (num % 2 !== 0)
+      var output = output + ", " + str.toUpperCase();
+    else
+      var output = output + ", " + str.toLowerCase();
+
+    num--;
+  }
+
+  return output
 }
 
 
@@ -72,9 +92,18 @@ Ex: stringToCapital("Are you a student in coding ACADEMY by ORANGE ?")
 => "ARE YOU A STUDENT IN CODING ACADEMY BY ORANGE ?"
 */
 
-function stringToCapital() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function stringToCapital(str) {
+  // WRITE YOUR CODE UNDER THIS LINE 
+  // debugger
 
+  var output = "";
+  var c = str.length;
+
+  if (c === 0) {
+    return output;
+  }
+  output = str[0].toUpperCase();
+  return output + stringToCapital(str.slice(1, c))
 }
 
 // Good luck :)
